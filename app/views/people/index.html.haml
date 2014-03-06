@@ -1,0 +1,21 @@
+%h1 Listing people
+
+%table
+  %tr
+    %th Sr. No.
+    %th Name
+    %th
+    %th
+    %th
+
+  - @people.each_with_index do |person, index|
+    %tr
+      %td= index+1
+      %td= person.name
+      %td= link_to 'Show', person
+      %td= link_to 'Edit', edit_person_path(person)
+      %td= link_to 'Destroy', person, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Person', new_person_path
